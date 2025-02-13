@@ -46,12 +46,12 @@ class RecurBackTest:
             cash=2000000,
         )
 
-    def prepare_data(self, data:pd.DataFrame):
+    def prepare_data(self, data: pd.DataFrame):
         # 2010-09-09 00:00:00-04:00
         # data['Date'] = data['Date'].dt.strftime('%Y/%m/%d')
         # data.index = pd.to_datetime(data["Date"])
         data.reset_index(inplace=True)
-        data.index =  pd.to_datetime(data["Date"], utc=True)
+        data.index = pd.to_datetime(data["Date"], utc=True)
 
         return self.normalize(data)
 

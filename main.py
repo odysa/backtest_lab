@@ -2,7 +2,7 @@ import recur_back_test
 import utils
 
 if __name__ == "__main__":
-    tickers = ["voo", "qqq", "spy", "upro"]
+    tickers = ["voo", "qqq", "spy", "brk-b", "aapl"]
     for ticker in tickers:
         data = utils.fetch_ticker_data(ticker)
         recur_test = recur_back_test.RecurBackTest(
