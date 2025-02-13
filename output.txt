@@ -1,0 +1,88 @@
+Rucurring Investment Backtest for VOO
+Date Range:  2015-02-13 05:00:00+00:00  -  2025-02-13 05:00:00+00:00
+Number of Trades: 514
+Average Price: 254.33614329765416
+Current Price: 560.2100219726562
+Total Invested: 51399.92248618832
+Current Equity: 113215.33515463183
+Current Shares: 202.094448
+Total Return: 61815.41266844351
+Total Return %: 120.26363013495582
+---------------------------------------------
+Rucurring Investment Backtest for QQQ
+Date Range:  2015-02-13 05:00:00+00:00  -  2025-02-13 05:00:00+00:00
+Number of Trades: 514
+Average Price: 186.67316515178575
+Current Price: 535.0551147460938
+Total Invested: 51399.940806608385
+Current Equity: 147325.94909322023
+Current Shares: 275.34724
+Total Return: 95926.00828661185
+Total Return %: 186.6266901892596
+---------------------------------------------
+Rucurring Investment Backtest for SPY
+Date Range:  2015-02-13 05:00:00+00:00  -  2025-02-13 05:00:00+00:00
+Number of Trades: 514
+Average Price: 277.71828716838274
+Current Price: 609.25
+Total Invested: 51399.916461899884
+Current Equity: 112759.58606725
+Current Shares: 185.079337
+Total Return: 61359.669605350115
+Total Return %: 119.37698313348987
+---------------------------------------------
+Rucurring Investment Backtest for BRK-B
+Date Range:  2015-02-13 05:00:00+00:00  -  2025-02-13 05:00:00+00:00
+Number of Trades: 514
+Average Price: 215.3189597690396
+Current Price: 479.5899963378906
+Total Invested: 51399.940627583244
+Current Equity: 114485.49335270828
+Current Shares: 238.715349
+Total Return: 63085.55272512503
+Total Return %: 122.7346801472195
+---------------------------------------------
+Rucurring Investment Backtest for KO
+Date Range:  2015-02-13 05:00:00+00:00  -  2025-02-13 05:00:00+00:00
+Number of Trades: 514
+Average Price: 42.42282643183988
+Current Price: 69.19499969482422
+Total Invested: 51399.988100529896
+Current Equity: 83837.4634619055
+Current Shares: 1211.611588
+Total Return: 32437.475361375604
+Total Return %: 63.107943328572865
+---------------------------------------------
+Rucurring Investment Backtest for GLD
+Date Range:  2015-02-13 05:00:00+00:00  -  2025-02-13 05:00:00+00:00
+Number of Trades: 514
+Average Price: 144.00875137792764
+Current Price: 269.95001220703125
+Total Invested: 51399.96140355711
+Current Equity: 96351.22918271393
+Current Shares: 356.922485
+Total Return: 44951.26777915682
+Total Return %: 87.45389403355854
+---------------------------------------------
+Rucurring Investment Backtest for UPRO
+Date Range:  2015-02-13 05:00:00+00:00  -  2025-02-13 05:00:00+00:00
+Number of Trades: 514
+Average Price: 22.39664046360204
+Current Price: 97.68000030517578
+Total Invested: 51399.991809475396
+Current Equity: 224174.30077493435
+Current Shares: 2294.986692
+Total Return: 172774.30896545894
+Total Return %: 336.1368414335207
+---------------------------------------------
+Rucurring Investment Backtest for BTC-USD
+Date Range:  2015-02-13 00:00:00+00:00  -  2025-02-13 00:00:00+00:00
+Number of Trades: 521
+Average Price: 1611.6379683032503
+Current Price: 95878.6328125
+Total Invested: 52094.48415424226
+Current Equity: 3099174.886677383
+Current Shares: 32.323937
+Total Return: 3047080.402523141
+Total Return %: 5849.142096313482
+---------------------------------------------

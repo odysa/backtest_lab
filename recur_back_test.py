@@ -6,6 +6,8 @@ import pandas as pd
 from backtesting import Backtest, Strategy
 from matplotlib import pyplot as plt
 
+from utils import TestStatistics
+
 NORM = 1000000
 
 
@@ -23,6 +25,15 @@ class RecurConfig:
 
 
 class RecurBackTest:
+    data: pd.DataFrame
+    ticker: str
+    amount: int
+    frequency: Frequency
+    day: int | None
+    strategy: Strategy
+    bt: Backtest
+    result_stats: TestStatistics | None
+
     def __init__(self, ticker: str, data: pd.DataFrame, config: RecurConfig):
         if (
             config.frequency in [Frequency.WEEKLY, Frequency.MONTHLY]
@@ -45,6 +56,7 @@ class RecurBackTest:
             trade_on_close=True,
             cash=2000000,
         )
+        self.result_stats = None
 
     def prepare_data(self, data: pd.DataFrame):
         # 2010-09-09 00:00:00-04:00
@@ -112,25 +124,20 @@ class RecurBackTest:
             if self.current_day_of_month[-1] == self.day_of_month:
                 self.buy(size=math.floor(self.amount_to_invest / self.data.Close[-1]))
 
-    def print_stats(self, stats):
-        trades = stats["_trades"]
-        price_paid = trades["Size"] * trades["EntryPrice"]
-        total_invested = price_paid.sum()
+    def print_stats(self):
 
-        current_shares = trades["Size"].sum()
-        current_equity = current_shares * self.data["Close"].iloc[-1]
-        average_price = total_invested / current_shares
+
         print("Rucurring Investment Backtest for", self.ticker.upper())
         print("Date Range: ", self.data.index[0], " - ", self.data.index[-1])
-        print(f"Number of Trades: {trades.shape[0]}")
-        print(f"Average Price: {average_price * NORM}")
-        print(f"Current Price: {self.data['Close'].iloc[-1] * NORM}")
-        print(f"Total Invested: {total_invested}")
-        print(f"Current Value: {current_equity}")
-        print(f"Current Shares: {current_shares / NORM}")
-        print(f"Total Return: {current_equity - total_invested}")
+        print(f"Number of Trades: {self.result_stats.num_trades}")
+        print(f"Average Price: {self.result_stats.avg_price}")
+        print(f"Current Price: {self.result_stats.current_price}")
+        print(f"Total Invested: {self.result_stats.total_invested}")
+        print(f"Current Equity: {self.result_stats.current_equity}")
+        print(f"Current Shares: {self.result_stats.current_shares}")
+        print(f"Total Return: {self.result_stats.total_return}")
         print(
-            f"Total Return %: {((current_equity - total_invested) / total_invested) * 100}"
+            f"Total Return %: {self.result_stats.total_return_pct}"
         )
         print("---------------------------------------------")
 
@@ -149,4 +156,21 @@ class RecurBackTest:
 
     def run(self):
         stats = self.bt.run()
+        trades = stats["_trades"]
+        price_paid = trades["Size"] * trades["EntryPrice"]
+        total_invested = price_paid.sum()
+
+        current_shares = trades["Size"].sum()
+        current_equity = current_shares * self.data["Close"].iloc[-1]
+        average_price = total_invested / current_shares
+        self.result_stats = TestStatistics(
+            num_trades=trades.shape[0],
+            avg_price=average_price * NORM,
+            current_price=self.data["Close"].iloc[-1] * NORM,
+            total_invested=total_invested,
+            current_equity=current_equity,
+            current_shares=current_shares / NORM,
+            total_return=current_equity - total_invested,
+            total_return_pct=((current_equity - total_invested) / total_invested) * 100,
+        )
         return stats
